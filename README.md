@@ -1,3 +1,5 @@
+yarn run dev
+
 # Building Web Forms with Next.js Example
 
 This example shows how you can build forms with Next.js.
