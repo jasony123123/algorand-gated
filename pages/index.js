@@ -2,43 +2,46 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
+import { useState } from 'react';
 
 export default function Home() {
+  const [assetId, setAssetId] = useState('');
   return (
     <div className={styles.container}>
       <Head>
-        <title>Next.js forms</title>
-        <meta name="description" content="Learn forms with Next.js" />
+        <title> Algorand ASA Gated Voting</title>
+        <meta name="description" content="Gated Voting Beta with Algorand ASAs" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Forms with <a href="https://nextjs.org">Next.js!</a>
+          Algorand ASA Gated Voting Beta
         </h1>
 
-        <p className={styles.description}>
-          Get started by looking at{' '}
-          <code className={styles.code}>pages/js-form.js</code> and{' '}
-          <code className={styles.code}>pages/no-js-form.js</code>
-        </p>
+        <h2>
+          Get started by looking at {
+            <Link href={"https://testnet.algoexplorer.io/assets"}>
+              <a>ASA List</a>
+            </Link>
+          } and entering an asset ID below:
+        </h2>
 
-        <div className={styles.grid}>
-          <Link href="/js-form">
-            <a className={styles.card}>
-              <h2>Form with JavaScript &rarr;</h2>
-              <p>Learn to handle forms with JavaScript in Next.js.</p>
-            </a>
-          </Link>
 
-          <Link href="/no-js-form">
-            <a className={styles.card}>
-              <h2>Form without JavaScript &rarr;</h2>
-              <p>Learn to handle forms without JavaScript in Next.js.</p>
-            </a>
-          </Link>
-        </div>
-      </main>
+        <input
+          type="text"
+          value={assetId}
+          onChange={e => { setAssetId(e.currentTarget.value); }}
+        />
+
+        <Link href={`/asa-voting-dashboard/?asset=${assetId}`}>
+          <a className={styles.card}>
+            <h2>Go to Vote! &rarr;</h2>
+            <p> Voting dashboard for current referendum results. And if you own the asset, you can vote too.</p>
+          </a>
+        </Link>
+
+      </main >
 
       <footer className={styles.footer}>
         <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer">
@@ -48,6 +51,6 @@ export default function Home() {
           </span>
         </a>
       </footer>
-    </div>
+    </div >
   )
 }

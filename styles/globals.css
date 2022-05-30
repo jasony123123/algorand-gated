@@ -29,7 +29,7 @@ label {
   color: #3b3b3b;
 }
 
-input {
+/* input {
   display: table;
   width: 100%;
   padding: 0.5rem;
@@ -37,7 +37,7 @@ input {
   border-radius: 0.25rem;
   box-sizing: border-box;
   margin-bottom: 2.5rem;
-}
+} */
 
 input:focus {
   outline: none;
@@ -70,3 +70,15 @@ button:hover {
   align-items: center;
   height: 100vh;
 }
+
+.float-container {
+  border: 3px solid #fff;
+  padding: 20px;
+}
+
+.float-child {
+  width: 50%;
+  float: left;
+  padding: 20px;
+  border: 2px solid red;
+}  
